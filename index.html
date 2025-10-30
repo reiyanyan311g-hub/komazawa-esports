@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>駒澤大学 eSportsサークル | ホーム</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; padding-top: 70px; }
+
+    /* ヘッダーを大きく */
+    .navbar {
+      height: 70px;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      background: url('https://user0514.cdnw.net/shared/img/thumb/unificgames_TP_V.jpg') center/cover no-repeat;
+      height: 80vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 部門紹介タイトル装飾 */
+    h2.text-center.mb-4 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #000;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    h2.text-center.mb-4::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 4px;
+      background-color: #000000;
+      margin: 8px auto 0;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    h2.text-center.mb-4:hover::after {
+      width: 100px;
+    }
+
+    /* 部門カード */
+    .division-card img {
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* --- VALORANT・スマブラ部門（上段）--- */
+#division .row.mb-4 .col-md-6 .division-card img {
+  height: 300px !important; /* ← 強制的に上書き */
+}
+
+/* --- 格ゲー・シャドウバース・LoL部門（下段）--- */
+#division .row.g-4 .division-card img {
+  height: 200px !important;
+}
+
+    .division-card {
+      transition: transform 0.2s;
+    }
+
+    .division-card:hover {
+      transform: scale(1.05);
+    }
+
+    .title-blue {
+      color: #2ba4c9;
+    }
+
+    /* 最新情報 */
+    #news-list .news-item {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .news-item:nth-child(n+4) {
+      display: none;
+    }
+
+    /* 最新情報の整列 */
+    #news-list .d-flex {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    #news-list .d-flex span:first-child {
+      flex: 1;
+      text-align: left; /* 日付 */
+    }
+
+    #news-list .d-flex span:nth-child(2) {
+      flex: 2;
+      text-align: center; /* タイトル */
+    }
+
+    #news-list .d-flex span:last-child {
+      flex: 1;
+      text-align: right; /* 部門 */
+    }
+
+    /* --- フェードイン効果 --- */
+    .card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* ゆっくりフェードイン */
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="https://pbs.twimg.com/profile_images/1963682461143191552/XGYp_t9A_400x400.jpg" alt="ロゴ" style="height:2.5em; margin-right:8px;">
+      駒澤大学 eSportsサークル
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">ホーム</a></li>
+        <li class="nav-item"><a class="nav-link" href="introduce.html">部門紹介</a></li>
+        <li class="nav-item"><a class="nav-link" href="report.html">最新情報</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ヒーローセクション -->
+<section class="hero">
+  <div class="hero-content text-center">
+    <h1 class="display-4 fw-bold">駒澤大学 e-Sportsサークル</h1>
+    <p class="lead">VALORANT・スマブラ・格ゲー・シャドウバース・LoL部門で活動中！</p>
+  </div>
+</section>
+
+<!-- 部門紹介 -->
+<section id="division" class="container my-5">
+  <h2 class="text-center mb-4">部門紹介</h2>
+
+  <div class="row g-4 mb-4">
+    <div class="col-md-6">
+      <a href="valorant.html" class="text-decoration-none text-dark">
+        <div class="card division-card h-100 text-center">
+          <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/128bf9f26fa053c09759fcdcf075df57439e5f80-1920x1080.jpg?auto=format&fit=fill&q=80&w=1082" alt="VALORANT">
+          <div class="card-body">
+            <h5 class="card-title">VALORANT部門</h5>
+            <p class="card-text">競技志向のメンバーで学内外大会に出場中。</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a href="smash.html" class="text-decoration-none text-dark">
+        <div class="card division-card h-100 text-center">
+          <img src="https://sm.ign.com/ign_jp/news/m/masahiro-s/masahiro-sakurai-explains-what-the-super-smash-bros-logo-sym_hvh1.jpg" alt="スマブラ">
+          <div class="card-body">
+            <h5 class="card-title">スマブラ部門</h5>
+            <p class="card-text">初心者～上級者まで楽しく練習・大会参加。</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card division-card h-100 text-center">
+        <img src="https://kakuge-checker.com/images/topic-08101-4.jpg" alt="格ゲー">
+        <div class="card-body">
+          <h5 class="card-title">格ゲー部門</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card division-card h-100 text-center">
+        <img src="https://linksmate.jp/img/sp/about/game/shadowverse-wb/game_index_slide_01.webp" alt="シャドウバース">
+        <div class="card-body">
+          <h5 class="card-title">シャドウバース部門</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card division-card h-100 text-center">
+        <img src="https://afras.jp/wp-content/uploads/2025/06/lol.jpg" alt="LoL">
+        <div class="card-body">
+          <h5 class="card-title">LoL部門</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 最新情報 -->
+<section id="report" class="container my-5">
+  <h2 class="text-center mb-4">最新情報</h2>
+  <div class="row g-3" id="news-list">
+    <div class="col-12 news-item">
+      <a href="report1.html" class="text-decoration-none text-dark">
+        <div class="d-flex border p-2">
+          <span>2025/10/3</span>
+          <span class="title-blue">第1回KOMAZAWA VALORANT CUP開催決定！</span>
+          <span>VALORANT部門</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-12 news-item">
+      <a href="report2.html" class="text-decoration-none text-dark">
+        <div class="d-flex border p-2">
+          <span>2025/09/01</span>
+          <span class="title-blue">新メンバー募集のお知らせ</span>
+          <span>全部門</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-12 news-item">
+      <a href="report3.html" class="text-decoration-none text-dark">
+        <div class="d-flex border p-2">
+          <span>2025/08/26</span>
+          <span class="title-blue">ESR GRAND PRIX VALORANT出場結果報告</span>
+          <span>VALORANT部門</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-12 news-item">
+      <a href="report4.html" class="text-decoration-none text-dark">
+        <div class="d-flex border p-2">
+          <span>2025/07/10</span>
+          <span class="title-blue">第5回ESR CUP VALORANT出場結果報告</span>
+          <span>スマブラ部門</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="text-center mt-3">
+    <button id="toggle-news" class="btn btn-outline-primary">> さらに表示</button>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="bg-dark text-white text-center py-4">
+  <small>© 2025 駒澤大学 eSportsサークル All Rights Reserved.</small><br>
+  <a href="https://twitter.com/komadaiesports" target="_blank" class="text-white">@komadaiesports</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('toggle-news');
+  const newsItems = document.querySelectorAll('.news-item');
+  let isExpanded = false;
+
+  // ニュースの開閉
+  toggleBtn.addEventListener('click', () => {
+    newsItems.forEach((item, index) => {
+      item.style.display = (!isExpanded || index < 3) ? 'block' : 'none';
+    });
+    toggleBtn.textContent = isExpanded ? '> さらに表示' : '> 閉じる';
+    isExpanded = !isExpanded;
+  });
+
+  const navbarHeight = document.querySelector('.navbar').offsetHeight;
+  const homeLink = document.querySelector('a.nav-link[href="index.html"]');
+  const divisionLink = document.querySelector('a.nav-link[href="introduce.html"]');
+  const reportLink = document.querySelector('a.nav-link[href="report.html"]');
+  const divisionSection = document.getElementById('division');
+  const reportSection = document.getElementById('report');
+
+  // ホーム → スクロールトップ
+  if (homeLink) {
+    homeLink.addEventListener('click', (e) => {
+      if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+
+  // スムーズスクロール関数
+  const smoothScroll = (link, section) => {
+    if (link && section) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const topPos = section.getBoundingClientRect().top + window.scrollY - navbarHeight - 10;
+        window.scrollTo({ top: topPos, behavior: 'smooth' });
+      });
+    }
+  };
+
+  smoothScroll(divisionLink, divisionSection);
+  smoothScroll(reportLink, reportSection);
+
+  // フェードイン（IntersectionObserver）
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observer.observe(card));
+});
+</script>
+</body>
+</html>
+
+
